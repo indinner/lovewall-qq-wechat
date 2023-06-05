@@ -1,6 +1,6 @@
 
-export const baseUrl='https://wall.indinner.com/'
-// export const baseUrl='http://10.100.158.131:8009/'
+
+export const baseUrl='http://10.100.158.131:8009/'
 
 
 export const myRequest=(url,params,method)=>{
