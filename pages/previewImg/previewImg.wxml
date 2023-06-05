@@ -1,0 +1,19 @@
+<!--pages/previewImg/previewImg.wxml-->
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />
+<view style="display: flex;justify-content: center;padding-bottom: 200rpx;margin-top: 40rpx;">
+  <view class="img-border" wx:if="isurl">
+    <image 	show-menu-by-longpress="{{true}}" mode="widthFix" style="width: 100%;border-radius: 20rpx;" src="{{url}}"></image>
+  </view>
+</view>
+<view style="position: fixed;bottom: 80rpx;width: 100%;">
+  <view style="text-align: center;margin-bottom: 22rpx;">
+    <view style="display: flex;justify-content: space-evenly;">
+      <view bindtap="checkColor" wx:for="{{bgColors}}" data-index="{{index}}" style="width: 100rpx;height: 100rpx;border-radius: 100%; background: linear-gradient(to bottom, {{'#'+item.color1}}, {{'#'+item.color2}});" class="{{index+1==bgColor?'border1':''}}"></view>
+    </view>
+  </view>
+  <view class="button-example">
+    <t-button theme="light" bindtap="back" block size="large">返回编辑</t-button>
+    <t-button bindtap="toMessage" theme="primary" block size="large">确认发布</t-button>
+  </view>
+</view>

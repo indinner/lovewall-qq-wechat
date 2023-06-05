@@ -1,0 +1,15 @@
+/* pages/previewImg/previewImg.wxss */
+.img-border{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+.button-example {
+  margin: 0 32rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32rpx;
+}
+.border1{
+  box-shadow:black 0px 0px 10px;
+}

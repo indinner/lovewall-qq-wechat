@@ -1,0 +1,47 @@
+<t-message id="t-message" />
+<t-toast show-overlay="{{true}}" id="t-toast" />
+<t-radio-group t-class="horizontal-box" value="{{schoolCode_index}}" bind:change="onChange1">
+  <view wx:for="{{checkData}}" wx:key="index" class="card {{schoolCode_index == index ? 'card--active' : ''}}">
+    <t-icon wx:if="{{schoolCode_index == index}}" name="check" t-class="card__icon" />
+    <t-radio value="{{index}}" label="{{item.schoolName}}" icon="none" borderless />
+  </view>
+</t-radio-group>
+
+<view>
+  <t-input model:value="{{title}}" label="标题" placeholder="限制10字内,例如:寻耳机"></t-input>
+</view>
+<view>
+  <t-textarea model:value="{{content}}" t-class="external-class" placeholder="请输入投稿具体内容(禁止引战言论,不完整信息,广告...)" disableDefaultPadding="{{true}}" />
+</view>
+<view style="margin-left: 20rpx;">
+  <view class="wrapper">
+    <t-upload
+      class="upload"
+      media-type="{{['image']}}"
+      files="{{originFiles}}"
+      gridConfig="{{gridConfig}}"
+      bind:remove="handleRemove"
+      bind:select-change="selectChange"
+    />
+  </view>
+</view>
+<view class="tags-view">
+  <view class="tags" wx:for="{{tags}}" wx:key="index">
+    <t-check-tag
+      data-index="{{index}}"
+      bind:click="clickTag"
+      class="margin-16"
+      checked="{{item.checked}}"
+      variant="dark"
+      icon="{{item.icon}}"
+      content="{{ [item.content, item.content] }}"></t-check-tag>
+  </view>
+</view>
+<view>
+  <t-input model:value="{{wechat}}" prefixIcon="logo-wechat" label="微信" placeholder="请输入微信号(非必填)" />
+  <t-input model:value="{{qq}}" prefixIcon="logo-qq" label="QQ" placeholder="请输入QQ号(非必填)" />
+  <!-- <t-input model:value="{{tel}}" prefixIcon="call" label="电话" placeholder="请输入电话号(非必填)" /> -->
+</view>
+<view class="button-example">
+  <t-button bindtap="createPreviewImg" theme="primary" size="large" block>预览投稿</t-button>
+</view>

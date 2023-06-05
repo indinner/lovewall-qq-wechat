@@ -1,0 +1,27 @@
+<!--pages/admin/audit/audit.wxml-->
+<t-fab style="bottom: 200rpx;z-index: 99;" icon="relativity" bind:click="copyText" aria-label="增加"></t-fab>
+
+<t-radio-group t-class="horizontal-box" value="{{schoolCode_index}}" bind:change="onChange1">
+  <view wx:for="{{checkData}}" wx:key="index" class="card {{schoolCode_index == index ? 'card--active' : ''}}">
+    <t-icon wx:if="{{schoolCode_index == index}}" name="check" t-class="card__icon" />
+    <t-radio value="{{index}}" label="{{item.schoolName}}" icon="none" borderless />
+  </view>
+</t-radio-group>
+
+<view>
+  <t-swipe-cell wx:for="{{previewImgData}}">
+    <t-cell
+      data-url="{{item.url}}"
+      bordered="{{true}}"
+      hover="{{true}}"
+      title="{{item.title}}"
+      description="{{item.createTime}}"
+      note="{{item.tag}}"
+      image="{{item.url}}"
+      bindtap="previewImg"
+    />
+    <view slot="right" data-data="{{item}}" class="btn pass-btn" bind:tap="onPass">通过</view>
+    <view slot="right" data-data="{{item}}" class="btn delete-btn" bind:tap="onDelete">驳回</view>
+  </t-swipe-cell>
+</view>
+<view style="padding-bottom: 180rpx;"></view>
