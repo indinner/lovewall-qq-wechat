@@ -7,3 +7,4 @@
 * 打开终端，执行`npm install`命令(请确保你已经全局安装了npm)
 * 然后点击`工具`->`构建npm`
 * 等待构建完成,点击编译运行即可！
+## 后端地址：https://github.com/indinner/wall-server-public
